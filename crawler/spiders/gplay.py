@@ -38,22 +38,9 @@ class GPLAYSpider(BaseReviewsSpider):
             categoryURL = category.xpath('@href').extract_first().strip()
             self.logger.debug('This is the category name %s and category URL %s' % (categoryName,categoryURL))
             yield Request('https://play.google.com'+categoryURL,callback=self.parseCollectionGroup)
-   
-        #chars = string.ascii_uppercase + string.digits
-        #for x in chars :
-        #    yield Request('https://play.google.com/store/search?q='+x+'&c=apps',callback=self.parseSearch)
-        #   
-        #for x in chars :
-        #    for y in chars :
-        #        yield Request('https://play.google.com/store/search?q='+x+y+'&c=apps',callback=self.parseSearch)
-        #       
-        #for x in chars :
-        #    for y in chars :
-        #        for z in chars :
-        #            yield Request('https://play.google.com/store/search?q='+x+y+z+'&c=apps',callback=self.parseSearch)        
-        #return
-        #yield Request('https://play.google.com/store/search?q=A&c=apps',callback=self.parseSearch)
+
         #yield Request('https://play.google.com/store/apps/category/ART_AND_DESIGN',callback=self.parseCollectionGroup)
+        return
 
     def parseCollectionGroup(self, response):
         self.logger.debug('parseCollectionGroup ============================================')
@@ -134,9 +121,9 @@ class GPLAYSpider(BaseReviewsSpider):
             yield Request('https://play.google.com'+appURL[0] ,callback=self.parseApp)
             
         screens = hxs.css('div[class="thumbnails-wrapper"] img')
-        screenShots=''
+        screenShots=[]
         for screen in screens:
-            screenShots = screenShots + screen.xpath('@src').extract()[0] + ';'
+            screenShots.append(screen.xpath('@src').extract_first())
        
         metadata = hxs.xpath('//div[@class="main-content"]')
         
@@ -178,4 +165,5 @@ class GPLAYSpider(BaseReviewsSpider):
         app['updated'] = metadata.xpath('//div[@itemprop="datePublished"]/text()').extract_first().strip()
         app['number_of_downloads'] = metadata.xpath('//div[@itemprop="numDownloads"]/text()').extract_first().strip()
         app['software_version'] = metadata.xpath('//div[@itemprop="softwareVersion"]/text()').extract_first().strip()
+        
         yield app

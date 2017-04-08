@@ -448,6 +448,11 @@ SAMPLE_INPUT = {
 	    },
 	    "last_review_hashes": []
     },
+    "gplaymin":{
+	    "profile_keys": {
+		    "gplay": "com.trello"
+	    }
+    },
     "gplay":{
 	    "business_name": "Hilton",
 	    "address": {
