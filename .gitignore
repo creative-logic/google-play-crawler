@@ -1,0 +1,10 @@
+*out.jl
+build
+*.egg-info
+.scrapy
+log.txt
+.tox
+*.log
+/tmp
+.idea
+*.pyc

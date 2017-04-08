@@ -1,0 +1,6 @@
+scrapy
+dateparser
+requests
+retrying
+scrapy-crawlera
+boto

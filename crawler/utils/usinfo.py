@@ -1,0 +1,62 @@
+
+STATES_ABBR = {
+    u'Alabama': u'AL',
+    u'Alaska': u'AK',
+    u'Arizona': u'AZ',
+    u'Arkansas': u'AR',
+    u'California': u'CA',
+    u'Colorado': u'CO',
+    u'Connecticut': u'CT',
+    u'Delaware': u'DE',
+    u'District Of Columbia': u'DC',
+    u'Florida': u'FL',
+    u'Georgia': u'GA',
+    u'Hawaii': u'HI',
+    u'Idaho': u'ID',
+    u'Illinois': u'IL',
+    u'Indiana': u'IN',
+    u'Iowa': u'IA',
+    u'Kansas': u'KS',
+    u'Kentucky': u'KY',
+    u'Louisiana': u'LA',
+    u'Maine': u'ME',
+    u'Maryland': u'MD',
+    u'Massachusetts': u'MA',
+    u'Michigan': u'MI',
+    u'Minnesota': u'MN',
+    u'Mississippi': u'MS',
+    u'Missouri': u'MO',
+    u'Montana': u'MT',
+    u'Nebraska': u'NE',
+    u'Nevada': u'NV',
+    u'New Hampshire': u'NH',
+    u'New Jersey': u'NJ',
+    u'New Mexico': u'NM',
+    u'New York': u'NY',
+    u'North Carolina': u'NC',
+    u'North Dakota': u'ND',
+    u'Ohio': u'OH',
+    u'Oklahoma': u'OK',
+    u'Oregon': u'OR',
+    u'Pennsylvania': u'PA',
+    u'Rhode Island': u'RI',
+    u'South Carolina': u'SC',
+    u'South Dakota': u'SD',
+    u'Tennessee': u'TN',
+    u'Texas': u'TX',
+    u'Utah': u'UT',
+    u'Vermont': u'VT',
+    u'Virginia': u'VA',
+    u'Washington': u'WA',
+    u'West Virginia': u'WV',
+    u'Wisconsin': u'WI',
+    u'Wyoming': u'WY',
+}
+
+
+def find_state_abbr(state_name):
+    def normalize(s):
+        return s.strip().title()
+    if len(state_name) == 2:
+        return state_name
+    return STATES_ABBR.get(normalize(state_name))
