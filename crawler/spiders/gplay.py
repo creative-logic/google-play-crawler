@@ -12,16 +12,6 @@ class GPLAYSpider(BaseReviewsSpider):
     name = "gplay"
     allowed_domains = ["play.google.com"]
     
-    #start_urls = [
-    #    "https://play.google.com/store/apps"
-    #]
-   
-    #rules = (
-    #    Rule(LinkExtractor(allow=('/store/apps$', )), callback='parseCategoryGroup',follow=True),
-    #    Rule(LinkExtractor(allow=('/store/apps/category/.*', )), callback='parseCategory',follow=True),
-    #    Rule(LinkExtractor(allow=('/store/search\?.*', )), callback='parseSearch',follow=True),
-    #)
-    
     def search_requests(self):
         self.logger.debug('search_requests ============================================')
         url = 'https://play.google.com/store/apps'

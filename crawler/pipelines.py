@@ -4,15 +4,15 @@ import datetime
 import boto.sqs
 import json
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
 conf = {
-	"sqs-access-key": "",
-	"sqs-secret-key": "",
-	"sqs-queue-name": "",
-	"sqs-region": "us-east-1",
-	"sqs-path": "sqssend"
+	"sqs-access-key": os.getenv('ASYNCRO_AWS_KEY', ""),
+	"sqs-secret-key": os.getenv('ASYNCRO_AWS_SECRET', ""),
+	"sqs-queue-name": "gplay-app-details",
+	"sqs-region": os.getenv('ASYNCRO_AWS_REGION', "")
 }
 
 class SQSStorePipeline(object):
@@ -23,7 +23,7 @@ class SQSStorePipeline(object):
             aws_access_key_id = conf.get('sqs-access-key'),
             aws_secret_access_key = conf.get('sqs-secret-key')
         )
-        self.queue = self.sqs.get_queue(conf.get('end-queue'))
+        self.queue = self.sqs.get_queue(conf.get('sqs-queue-name'))
 
     def process_item(self, item, spider):
         # run db query in thread pool

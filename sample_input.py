@@ -453,17 +453,7 @@ SAMPLE_INPUT = {
 		    "gplay": "com.trello"
 	    }
     },
-    "gplay":{
-	    "business_name": "Hilton",
-	    "address": {
-		    "street": "333 O'Farrell Street",
-		    "city": "San Francisco",
-		    "state": "CA",
-		    "zip": "94102"
-	    },
-	    "profile_keys": {},
-	    "last_review_hashes": []
-    }
+    "gplay":{}
 }
 
 

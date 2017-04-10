@@ -34,4 +34,5 @@ outfile="tmp/${spider}-${item}-out.json"
 logfile="tmp/${spider}-${item}-log.txt"
 
 export LOCAL_DEV_ENVIRONMENT=1
-RUN_QA_CHECKS=1 scrapy crawl $spider -a place="$place" -o "$outfile"
+#RUN_QA_CHECKS=1 scrapy crawl $spider -a place="$place" -o "$outfile"
+RUN_QA_CHECKS=1 scrapy crawl $spider -a place="$place"
