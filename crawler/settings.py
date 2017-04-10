@@ -18,6 +18,10 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:45.0) Gecko/20100101 Firefox/45.0'
 CONCURRENT_REQUESTS_PER_DOMAIN = 100
 
+DOWNLOADER_MIDDLEWARES = {
+    'crawler.middlewares.CustomCrawleraMiddleware': 610,
+}
+
 ITEM_PIPELINES = {
    'crawler.pipelines.SQSStorePipeline': 200
 }
